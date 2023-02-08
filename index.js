@@ -4,7 +4,7 @@ const port=3000
 // req trae del usuario
 // res reponde al usuario
 app.get("/", (req, res )=> {
-  res.send("Hola Mundo  Somos Manuel, Ruth y Ximena");
+  res.send("Rama Ximena");
 })
 
 app.listen(port, ()=>{
