@@ -1,9 +1,20 @@
 const express = require('express');
+const mongoose= require('mongoose');
+
 const app= express();
 const port=3000;
-// req trae del usuario
-// res reponde al usuario
+
+
 const todoRoutes= require("./routes/todoRoutes");
+
+const use="todolist";
+const password='1234';
+const dbname='todolist';
+
+const url = `mongodb+srv://${use}:${password}@bd.y5qzq9a.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+mongoose.set("strictQuery", false);
+mongoose.connect(url).then(()=>console.log("Conexion exitosa")).catch((err)=> console.error(err));
+
 app.use("/todos",todoRoutes );
 
 

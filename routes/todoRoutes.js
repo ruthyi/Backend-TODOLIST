@@ -1,7 +1,30 @@
-const router=require("express").Router();
+const router = require("express").Router();
+const Todo = require("../models/todo");
 
-router.get("/", (req, res )=> {
-  console.log("Estas adentro de una pagina");
-})
+router.get("/", (req, res) => {
+  Todo.find((err, result) => {
+    if (err) throw new Error(err);
+    console.log(result);
+  });
+});
 
-module.exports=router;
+router.post("/new", (req, res) => {
+  Todo.create(req.body, (err, result) => {
+    if (err) throw new Error(err);
+    console.log(result);
+  });
+});
+
+router.delete("/:id", (req, res) => {
+  Todo.findOneAndRemove({ _id: req.body.id }, (err, result) => {
+    if (err) throw new Error(err);
+    console.log(result);
+  });
+});
+
+  module.exports = router;
+
+
+
+
+
