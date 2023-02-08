@@ -1,8 +1,17 @@
-const router = require ("express").Router();
+const router=require("express").Router();
+const Todo=require("../models/todo");
 
-router.get("/", (req,res) =>
-{
-  console.log("Estas dentro de una pagina ;-;")
-})
+router.get("/", (req, res )=> { console.log("Hola")
+  Todo.find((err, result) => {
+    if(err) throw new Error(err);
+    console.log(result);
+    });
+});
 
-module.exports = router;
+router.post("/new", (req, res )=> {
+  console.log(req,body)
+
+});
+
+
+module.exports=router;

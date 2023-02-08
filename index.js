@@ -1,14 +1,27 @@
 const express = require('express');
-const app= express()
-const port=3000
-// req trae del usuario
-// res reponde al usuario
-const todoRoutes = require("./routes/todoRoutes");
-app.use("/todos", todoRoutes);
+const mongoose= require('mongoose');
 
-/*app.get("/", (req, res )=> {
-  res.send("Rama Ximena");
-})*/
+
+const app= express();
+const port=3000;
+
+
+
+
+const todoRoutes= require("./routes/todoRoutes");
+const use = "XimenaVelasco";
+const password = "123";
+const dbname = "todolist";
+const url = `mongodb+srv://${use}:${password}@cluster0.q8k7itt.mongodb.net/${dbname}?retryWrites=true&w=majority`
+
+
+
+mongoose.set("strictQuery", false);
+mongoose.connect(url).then(()=>console.log("Conexion exitosa")).catch((err)=> console.error(err));
+
+app.use("/todos",todoRoutes );
+
+
 
 app.listen(port, ()=>{
   console.log("mi puerto es: "+port);
