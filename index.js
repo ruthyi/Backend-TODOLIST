@@ -6,9 +6,9 @@ const port=3000
 const todoRoutes = require("./routes/todoRoutes");
 app.use("/todos", todoRoutes);
 
-app.get("/", (req, res )=> {
+/*app.get("/", (req, res )=> {
   res.send("Rama Ximena");
-})
+})*/
 
 app.listen(port, ()=>{
   console.log("mi puerto es: "+port);
