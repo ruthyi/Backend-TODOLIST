@@ -5,9 +5,7 @@ const port=3000;
 // res reponde al usuario
 const todoRoutes= require("./routes/todoRoutes");
 app.use("/todos",todoRoutes );
-// app.get("/", (req, res )=> {
-//   res.send("Hola Mundo  Somos Manuel, Ruth y Ximena");
-// })
+
 
 app.listen(port, ()=>{
   console.log("mi puerto es: "+port);
