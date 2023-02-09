@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Todo = require("../models/todo");
-// consult at DB
+
 router.get("/", (req, res) => {
   Todo.find((err, result) => {
     if (err) throw new Error(err);
@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   });
 });
 
-//insert data db
+
 router.post("/new", (req, res) => {
   Todo.create(
     req.body, (err, result) => {
@@ -16,7 +16,7 @@ router.post("/new", (req, res) => {
     res.json(result);
   });
 });
-// Delete object
+
 router.delete("/remove", (req, res) => {
   console.log(req.body);
 
