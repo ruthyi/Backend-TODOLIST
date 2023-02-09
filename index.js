@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const cors = require ('cors');
 const app = express();
 const port = 3000;
 
@@ -11,6 +11,7 @@ const connectionOptions = {
   useFindAndModify: false,
 };
 app.use(express.json());
+app.use(cors());
 const use = 'XimenaVelasco';
 const password = '123';
 const dbname = 'todolist';
