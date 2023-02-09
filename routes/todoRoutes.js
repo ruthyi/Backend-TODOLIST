@@ -1,17 +1,32 @@
-const router=require("express").Router();
-const Todo=require("../models/todo");
+const router = require("express").Router();
+const Todo = require("../models/todo");
 
-router.get("/", (req, res )=> { console.log("Hola")
+router.get("/", (req, res) => {
   Todo.find((err, result) => {
-    if(err) throw new Error(err);
-    console.log(result);
-    });
+    if (err) throw new Error(err);
+    res.json(result);
+  });
 });
 
-router.post("/new", (req, res )=> {
-  console.log(req,body)
-
+router.post("/new", (req, res) => {
+  console.log(req);
+  Todo.create(
+    req.body, (err, result) => {
+    if (err) throw new Error(err);
+    res.json(result);
+  });
 });
 
-
-module.exports=router;
+router.delete("/:id", (req, res) => {
+  Todo.findOneAndRemove({ _id: req.body.id }, (err, result) => {
+    if (err) throw new Error(err);
+    res.end();
+  });
+});
+router.put("/:id", (req, res) => {
+Todo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, result) => {
+if(err) throw new Error(err);
+res.json(result);
+});
+});
+  module.exports = router;
