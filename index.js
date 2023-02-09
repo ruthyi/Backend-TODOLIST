@@ -6,6 +6,8 @@ const port=3000;
 
 
 const todoRoutes= require("./routes/todoRoutes");
+const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false };
+app.use(express.json());
 
 const use="todolist";
 const password='1234';
