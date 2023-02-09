@@ -18,8 +18,6 @@ router.post("/new", (req, res) => {
 });
 
 router.delete("/remove", (req, res) => {
-  console.log(req.body);
-
   Todo.findOneAndRemove({ _id: req.body.id }, (err, result) => {
     if (err) throw new Error(err);
     res.end();
