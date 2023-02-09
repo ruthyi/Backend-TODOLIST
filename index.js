@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose= require('mongoose');
+const cors =require('cors');
 
 const app= express();
 const port=3000;
@@ -8,6 +9,7 @@ const port=3000;
 const todoRoutes= require("./routes/todoRoutes");
 const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false };
 app.use(express.json());
+app.use(cors());
 
 const use="todolist";
 const password='1234';
