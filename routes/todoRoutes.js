@@ -18,7 +18,7 @@ router.post("/new", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/remove", (req, res) => {
   Todo.findOneAndRemove({ _id: req.body.id }, (err, result) => {
     if (err) throw new Error(err);
     res.end();
