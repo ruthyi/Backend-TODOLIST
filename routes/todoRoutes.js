@@ -16,7 +16,7 @@ router.post("/new", (req, res) => {
     res.json(result);
   });
 });
-
+// Delete object
 router.delete("/remove", (req, res) => {
   console.log(req.body);
 
@@ -25,6 +25,7 @@ router.delete("/remove", (req, res) => {
     res.end();
   });
 });
+
 router.put("/:id", (req, res) => {
 Todo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, result) => {
 if(err) throw new Error(err);
