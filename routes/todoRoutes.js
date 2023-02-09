@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
   });
 });
 
+//insert data post db
 router.post("/new", (req, res) => {
   console.log(req);
   Todo.create(
